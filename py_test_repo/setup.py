@@ -1,7 +1,7 @@
 from setuptools import find_packages
 from setuptools import setup
 
-package_name = 'test_repo'
+package_name = 'py_test_repo'
 
 setup(
     name=package_name,
@@ -35,4 +35,3 @@ setup(
         ],
     },
 )
-

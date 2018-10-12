@@ -1,17 +1,19 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>test_repo</name>
+  <name>py_test_repo</name>
   <version>0.0.0</version>
-  <description>test_repo</description>
+  <description>py_test_repo</description>
   <maintainer email="marc.testier@gmail.com">Marc-Antoine Testier</maintainer>
   <author email="marc.testier@gmail.com">Marc-Antoine Testier</author>
   <license>Apache License 2.0</license>
 
   <exec_depend>rclpy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
 
   <test_depend>rclpy</test_depend>
   <test_depend>std_msgs</test_depend>
+  <test_depend>sensor_msgs</test_depend>
 
   <export>
     <build_type>ament_python</build_type>
