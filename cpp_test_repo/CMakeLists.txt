@@ -24,10 +24,14 @@ ament_target_dependencies(cpp_test_param rclcpp std_msgs sensor_msgs)
 add_executable(cpp_test_urg_node_param src/cpp_test_urg_node_param.cpp)
 ament_target_dependencies(cpp_test_urg_node_param rclcpp std_msgs sensor_msgs)
 
+add_executable(parameter_events_async src/parameter_events_async.cpp)
+ament_target_dependencies(parameter_events_async rclcpp std_msgs sensor_msgs)
+
 install(TARGETS
   cpp_test
   cpp_test_param
   cpp_test_urg_node_param
+  parameter_events_async
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

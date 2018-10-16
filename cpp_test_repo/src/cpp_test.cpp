@@ -21,14 +21,14 @@
 
 using std::placeholders::_1;
 
-class MinimalSubscriber : public rclcpp::Node
+class TestSub : public rclcpp::Node
 {
 public:
-  MinimalSubscriber()
-  : Node("minimal_subscriber")
+  TestSub()
+  : Node("test_sub")
   {
     subscription_ = this->create_subscription<sensor_msgs::msg::LaserScan>(
-      "scan", std::bind(&MinimalSubscriber::topic_callback, this, _1));
+      "scan", std::bind(&TestSub::topic_callback, this, _1));
   }
 
 private:
@@ -43,7 +43,8 @@ private:
     const auto msg_time = std::chrono::nanoseconds(nanosec);
     const std::chrono::time_point<std::chrono::system_clock> msg_time_point(msg_time);
     std::time_t msg_time_t = std::chrono::system_clock::to_time_t(msg_time_point);
-    RCLCPP_INFO(this->get_logger(), "[%s]", std::ctime(&msg_time_t));
+    RCLCPP_INFO(this->get_logger(), "%s", std::ctime(&msg_time_t));
+    RCLCPP_INFO(this->get_logger(), "Ranges : %d", msg->ranges.size());
   }
   rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr subscription_;
 };
@@ -51,7 +52,7 @@ private:
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<MinimalSubscriber>());
+  rclcpp::spin(std::make_shared<TestSub>());
   rclcpp::shutdown();
   return 0;
 }
