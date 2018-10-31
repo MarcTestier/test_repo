@@ -32,6 +32,7 @@ setup(
     entry_points={
         'console_scripts': [
             'test = src.test:main',
+            'test = src.get_lift_info_array_test:main',
         ],
     },
 )
